@@ -41,3 +41,8 @@ variáveis em escopo de bloco ?
 *Rodar em modo watch
 ```opam exec -- dune build -w```
 
+
+
+fibonacci N
+Multiplica_matriz N
+Im_par N 
