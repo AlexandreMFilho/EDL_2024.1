@@ -1,71 +1,11 @@
-let () = print_endline "Hello, World!"
+let a = [|1;0|];;
+let b = [|0;1|];;
+let mat = [|a;b|];;
+let add1 x = x + 1;;
+let rec print_matrix m =
+  Array.iter (fun x -> Array.iter (fun y -> print_int y; print_string " ") x; print_newline ()) m;;
+print_matrix mat;;
+  let rec map_matrix f m =
+  Array.map (fun x -> Array.map f x) m;;
 
-
-
-(* Lista: elas são imutáveis *)
-let a = [1; 2; 3; 4; 5];;
-a;;
-(* Array: elas são mutáveis *)
-let b = [|1;2;3;4;5;6|];;
-b.(3)<-10;;
-b;;
-(* Tupla *)
-let c = (1,"a");;
-c;;
-
-type carro = {
-  modelo: string;
-  ano: int;
-  odometro: int;
-};;
-
-let meu_carro = {modelo="Fusca"; ano=1970; odometro=100000};;
-
-
-
-type dias_da_semana = 
-| Segunda
-| Terca
-| Quarta
-| Quinta
-| Sexta
-| Sabado
-| Domingo;;
-
-Terca;;
-
-
-(*Funções*)
-let funcao parametro = parametro + 1;;
-
-funcao 1;;
-
-funcao 3*2;;  (*          ((funcao 3)*2)        *)
-
-let multiplica a b = a*b;;
-
-multiplica (6*6) 6;;
-
-let rec fatorial n = 
-  if n = 0 then 1
-  else n * fatorial (n-1);;
-
-(+) 2 ((+) 5 ((+) 4 3));;
-
-int_of_float 3.14 + 2;;  (* 5 *)
-float_of_int 2 +. 3.14;;  (* 5.14 *)
-
-let add1 x = x+1;;
-add1 5 |> add1;;
-
-add1 5 |> (+) 6;;  (*       |>  operador pipe *)
-
-multiplica 5 5 |> add1;;
-
-let (>>)  f g x = f(g(x));;  (* criar um novo operador*)
-
-(>>) add1 add1 6;;  
-
-let (+) a b = a * b;;    (*novo operador pode substituir operadores existentes*)
-
-(+) 2 3;; (*6*)
+print_matrix (map_matrix add1 mat);;
