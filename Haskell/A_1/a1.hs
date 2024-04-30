@@ -12,7 +12,7 @@ main = print (lista_to_num [1,2,3,4,5])
   aponta por meio de -> para a função dessa lista
   
   inicie a lista com algum valor obrigatóriamente, eu coloquei 0 na função para que não 
-  teje modificação de valor
+  tenha modificação de valor
   
   reverse xs reverte a lista de 54321 para 12345
 -}
